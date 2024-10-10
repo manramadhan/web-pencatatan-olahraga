@@ -10,6 +10,24 @@ $results = $db->query("SELECT * FROM olahraga");
 if (!$results) {
     echo "Query Error: " . $db->lastErrorMsg();
 }
+
+$message = ''; 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $jenis_olahraga = $_POST['jenis_olahraga'];
+    $durasi = $_POST['durasi'];
+    $tanggal = $_POST['tanggal'];
+
+
+    $query = "INSERT INTO olahraga (jenis_olahraga, durasi, tanggal) VALUES ('$jenis_olahraga', $durasi, '$tanggal')";
+    $result = $db->query($query); 
+
+    if ($result) {
+        header("Location: index.php");
+        exit();
+    } else {
+        $message = "Error saat menyimpan data: " . $db->lastErrorMsg();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +37,18 @@ if (!$results) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pencatat Rutin Olahraga</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../pencatatan_rutin_olahraga/style.css">   
+    <link rel="stylesheet" href="../pencatatan_rutin_olahraga/style.css">   
 </head>
 <body>
 
 <div class="container">
     <h1>Pencatat Rutin Olahraga</h1>
 
-    <form action="tambah.php" method="POST">
+    <?php if ($message): ?>
+        <script>alert("<?php echo htmlspecialchars($message); ?>");</script>
+    <?php endif; ?>
+
+    <form action="" method="POST">
         <div class="form-row">
             <input type="text" name="jenis_olahraga" placeholder="Jenis Olahraga" autocomplete="off" required>
         </div>
@@ -64,12 +86,6 @@ if (!$results) {
     }
     ?>
     </table>
-
-    <div style="text-align: center; margin-top: 20px;">
-        <a class="button" href="welcome.php">Kembali ke Halaman Selamat Datang</a>
-    </div>
-
 </div>
-
 </body>
 </html>
