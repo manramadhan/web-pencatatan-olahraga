@@ -1,9 +1,14 @@
 # Fitnes routin logger 
 Fitness Routine Logger adalah aplikasi web sederhana yang membantu pengguna mencatat aktivitas olahraga rutin mereka. Aplikasi ini memungkinkan pengguna untuk menambahkan jenis olahraga, durasi, serta tanggal kegiatan olahraga, kemudian menyimpan data tersebut untuk keperluan pemantauan kebiasaan olahraga.
+## Welcome page
+Pada bagian depan aplikasi, pengguna akan disambut dengan Welcome Page yang menampilkan pesan selamat datang dan navigasi untuk memulai mencatat olahraga mereka. Halaman ini dirancang agar pengguna dapat langsung diarahkan untuk mencatat aktivitas olahraga dengan mudah.
+
+![pencatatan-olahraga](welcome-web7.png)
+
+## Fitur Utama
 
 ![pencatatan-olahraga](web-7.png)
 
-### Fitur Utama:
 - Mencatat Olahraga: Pengguna dapat mencatat aktivitas olahraga yang mereka lakukan dengan mengisi form jenis olahraga, durasi dalam menit, dan memilih tanggal olahraga. Data ini kemudian disimpan dan ditampilkan dalam tabel.
 
 - Edit Data Olahraga: Pengguna dapat memperbarui data yang sudah disimpan jika terjadi kesalahan atau perubahan, misalnya mengubah jenis olahraga, durasi, atau tanggal.
